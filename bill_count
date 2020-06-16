@@ -1,0 +1,25 @@
+def bill_count(sum, li):
+    count=0
+    for i in range(len(li)):
+        for j in range(len(li)):
+            if li[i]>li[j]:
+                temp=li[i]
+                li[i]=li[j]
+                li[j]=temp
+    print(li)
+    if sum<0:
+        print("Invalid input")
+    elif sum==0:
+        print(0)
+    else:
+        for i in li:
+            if sum>=i:
+                count+=sum//i
+                sum=sum-((sum//i)*i)
+                if sum==0:
+                    break
+        
+        if sum!=0:
+            print("Invalid case")
+        else:
+             print(count)
